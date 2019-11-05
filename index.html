@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <link rel="stylesheet" href="计算器.css" />
+    <script type="text/javascript" src="计算器.js"></script>
+</head>
+<body>
+
+<div class="main">
+    <div class="history"></div>
+
+    <label>
+        <input class="operation" type="text" readonly="readonly" size="32" />
+    </label>
+    <div class="br">
+        <button class="one" onclick="功能('清空')">C</button>
+        <button class="one" onclick="功能('取反')">+/-</button>
+        <button class="one" onclick="表达式追加('%')">%</button>
+        <button class="two" onclick="功能('回退')">←</button>
+    </div>
+    <div class="br">
+        <button class="one" onclick="表达式追加('7')">7</button>
+        <button class="one" onclick="表达式追加('8')">8</button>
+        <button class="one" onclick="表达式追加('9')">9</button>
+        <button class="one" onclick="表达式追加('+')">+</button>
+        <button class="one" onclick="表达式追加('-')">-</button>
+    </div>
+    <div class="br">
+        <button class="one" onclick="表达式追加('4')">4</button>
+        <button class="one" onclick="表达式追加('5')">5</button>
+        <button class="one" onclick="表达式追加('6')">6</button>
+        <button class="one" onclick="表达式追加('*')">×</button>
+        <button class="one" onclick="表达式追加('/')">÷</button>
+    </div>
+    <div class="br">
+        <button class="one" onclick="表达式追加('1')">1</button>
+        <button class="one" onclick="表达式追加('2')">2</button>
+        <button class="one" onclick="表达式追加('3')">3</button>
+        <button class="one" onclick="表达式追加('²')">×²</button>
+        <button class="one" onclick="表达式追加('√')">√</button>
+    </div>
+    <div class="br">
+        <button class="two" onclick="表达式追加('0')">0</button>
+        <button class="one" onclick="表达式追加('.')">.</button>
+        <button class="two" onclick="计算()">=</button>
+    </div>
+</div>
+
+
+</body>
+</html>
