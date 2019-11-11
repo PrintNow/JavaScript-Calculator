@@ -1,9 +1,14 @@
 window['计算表达式'] = [];
+
 const 运算符列表 = ['+', '-', '*', '/', '%', '√'];
 
 function 功能(类型){
     try{
         let operation = document.querySelector(".operation");
+
+        if(类型 === '取反'){
+            window['计算表达式'].unshift('-');//追加取反运算符
+        }
 
         if(类型 === '清空'){
             operation.value = '';
@@ -11,12 +16,18 @@ function 功能(类型){
         }
 
         if(类型 === '回退'){
-            元素值 = window['计算表达式'][window['计算表达式'].length-1];
+            //解决当一个符号后面是数字时，数字全部删除完成后，数组元素未删除的情况
+            if(window['计算表达式'][window['计算表达式'].length-1] === ""){
+                window['计算表达式'].pop();
+            }
+
+            let 倒数第一个元素索引 = window['计算表达式'].length-1;
+            元素值 = window['计算表达式'][倒数第一个元素索引];
 
             if(isNaN(元素值)){
                 window['计算表达式'].pop();
             }else{
-                window['计算表达式'] = 元素值.substring(0, 元素值-1);
+                window['计算表达式'][倒数第一个元素索引] = 元素值.substring(0, 元素值.length-1);
             }
 
             document.querySelector(".operation").value = window['计算表达式'].join('');
@@ -27,7 +38,7 @@ function 功能(类型){
 
 }
 
-function 计算() {
+function 计算(类型='') {
     try{
         if(计算表达式.length-1 < 0) return alert("式子不正确，请检查！");
 
@@ -59,8 +70,10 @@ function 计算() {
         let operation = document.querySelector(".operation");
         let history = document.querySelector('.history');
 
+
         operation.value += '='+eval(window['计算表达式'].join(''));
         history.innerHTML += "<p>"+operation.value+"</p>";
+
         history.scrollTop = history.scrollHeight;
 
         计算表达式追加('=');
