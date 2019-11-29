@@ -1,9 +1,6 @@
 # JavaScript-Calculator
 [期中测试题目]JavaScript 计算器，仅完成基础计算功能
 
-# 作者
-陈文洲
-
 # 基础计算功能
 - 加、减、乘、除、取余、根号、平方
 
